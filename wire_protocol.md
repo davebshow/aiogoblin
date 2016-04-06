@@ -6,7 +6,7 @@ This protocol is based on the [ZMQ Majordomo Protocol 0.2](http://rfc.zeromq.org
 
 ### Goals
 
-Like MDP/0.2, this protocol uses name based service resolution and allows for multiple replies to a single request. It is not %100 compatible with MDP/0.2. The significant differences are that this protocol allows for multiple requests to be sent without waiting for a reply (maybe), and each request has a unique id that can be managed explicitly.
+Like MDP/0.2, this protocol uses name based service resolution and allows for multiple replies to a single request. It is not 100% compatible with MDP/0.2. The significant differences are that this protocol allows for multiple requests to be sent without waiting for a reply (maybe), and each request has a unique id that can be managed explicitly.
 
 The goals are the same as those stated in the [MDP](http://rfc.zeromq.org/spec:18) contract:
 
