@@ -23,7 +23,7 @@ The overall topology is quite similar to the [MDP](http://rfc.zeromq.org/spec:18
 
 The broker SHOULD open two sockets (ports), one front-end for clients, and one back-end for workers.
 
-ROUTER addressing
+### ROUTER addressing
 
 As stated in [MDP](http://rfc.zeromq.org/spec:18):
 
@@ -152,7 +152,7 @@ A PONG command consists of a multipart message of 2 frames, formatted on the wir
 
 A DISCONNECT command consists of a multipart message of 2 frames, formatted on the wire as follows:
 
-* Frame 0: "MDPW02" (six bytes, representing MDP/Worker v0.2)
+* Frame 0: Protocol name and version
 * Frame 1: 0x06 (one byte, representing DISCONNECT)
 
 ### Opening and Closing Connections:
@@ -183,7 +183,7 @@ Similar to [MDP](http://rfc.zeromq.org/spec:18):
 
 * PING commands are valid at any time, after a READY command.
 * Any received command except DISCONNECT acts as a heartbeat. Peers SHOULD NOT send HEARTBEAT commands while also sending other commands.
-* The worker MUST send PING (or other non-DISCONNECT) commands at an agreed upon interval. A worker MUST consider the router "disconnected" if no PONG (or other non-DISCONNECT) arrives within some multiple of that interval (usually 3-5).
+* The worker MUST send PING commands at an agreed upon interval. A worker MUST consider the router "disconnected" if no PONG (or other non-DISCONNECT) arrives within some multiple of that interval (usually 3-5).
 * The router MUST send PONG (or other non-DISCONNECT) as a response to a worker PING. A router MUST consider the worker "disconnected" if no PING (or other non-DISCONNECT) arrives within some multiple of agreed upon PING interval.
 * If the worker detects that the broker has disconnected, it SHOULD restart a new conversation.
 * If the broker detects that the worked has disconnected, it SHOULD stop sending it messages of any type.
