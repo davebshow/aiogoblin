@@ -37,13 +37,13 @@ As stated in [MDP](http://rfc.zeromq.org/spec:18):
 
 The Protocol/Client is a sync/async dialog initiated by the client ('C' is client, 'B' is broker).
 
-Dialog:
--------
-Repeat:
-  C: REQUEST
-Repeat:
-  B: \*PARTIAL
-  B: FINAL
+Dialog:|
+-------|
+Repeat:|
+  C: REQUEST|
+Repeat:|
+  B: \*PARTIAL|
+  B: FINAL|
 
 Breakdown:
 
@@ -90,20 +90,20 @@ Like [MDP](http://rfc.zeromq.org/spec:18):
 
 Protocol/Worker is a mix of a synchronous request-reply dialog initiated by the worker and a synchronous ping-pong heartbeat dialog, also initiated by the worker. The request-reply dialog is the same as described in [MDP](http://rfc.zeromq.org/spec:18) (W is worker, B is broker):
 
-Request-reply dialog:
----------------------
-W: READY
-Repeat:
-  B: REQUEST
-  W: \*PARTIAL
-  W: FINAL
+Request-reply dialog:|
+---------------------|
+W: READY|
+Repeat:|
+  B: REQUEST|
+  W: \*PARTIAL|
+  W: FINAL|
 
-Ping-pong dialog:
-------------------
-Repeat:
-  W: PING
-  B: PONG
-B: DISCONNECT
+Ping-pong dialog:|
+-----------------|
+Repeat:|
+  W: PING|
+  B: PONG|
+B: DISCONNECT|
 
 For the most part, commands are identical to those specified in the [MDP](http://rfc.zeromq.org/spec:18) (with the exception of an explicit request id, and ping-pong heartbeating):
 
